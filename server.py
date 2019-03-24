@@ -5,6 +5,7 @@ serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', 8080)
 #store socket address in a variable
 print('starting up on {}, port {}'.format(*server_address))
+#print message on terminal 
 serv.bind(server_address)
 
 serv.listen(5)
