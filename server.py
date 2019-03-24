@@ -11,7 +11,8 @@ serv.bind(server_address)
 serv.listen(5)
 
 while True:
-	print('connection? anyone?\nGoing, once...\nGoing twice...\nWaiting for a connection, yo')
+	print('connection? anyone?\n'
+		  'Going, once...\nGoing twice...\nWaiting for a connection, yo')
 	connection, client_address = serv.accept()
 
 	try:

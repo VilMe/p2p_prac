@@ -1,26 +1,33 @@
 import socket
+import sys
 
 
-def get_constants(prefix):
-    """ Create dictionary mapping socket module constants
-    to their names.
-    """
-    return {
-    getattr(socket, n): n 
-    for n in dir(socket) 
-    if n.startswith(prefix)
-    }
+# def get_constants(prefix):
+#     """ Create dictionary mapping socket module constants
+#     to their names.
+#     """
+#     return {
+#     getattr(socket, n): n 
+#     for n in dir(socket) 
+#     if n.startswith(prefix)
+#     }
 
-families = get_constants('AF_')
-types = get_constants('SOCK_')
-protocols = get_constants('IPPROTO')
+# families = get_constants('AF_')
+# types = get_constants('SOCK_')
+# protocols = get_constants('IPPROTO')
 
-sock = socket.create_connection (('localhost', 8080))
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#create an INET, STREAMing socket
 
-print('Family: ', families[sock.family])
-print('Type: ', types[sock.type])
-print('Protocol: ', protocols[sock.proto])
-print()
+# print('Family: ', families[sock.family])
+# print('Type: ', types[sock.type])
+# print('Protocol: ', protocols[sock.proto])
+# print()
+server_address = (sys.argv[1], 8080)
+print('what port are we connecting to again..oh yeah, it\'s\n',
+       '{}\non port {}'.format(*server_address))
+
+
 
 try:
     message = input('Enter message: ')
